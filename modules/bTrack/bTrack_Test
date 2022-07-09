@@ -1,0 +1,43 @@
+"""
+Please note the btrack algorithm is not perfect and doesnt detect division events for our data. However, it is able to track cells quite well  
+but when a cell divides one of the daugther cells is named after the parent while the other one is given a new label. 
+We developed additionally downstream code for detecting the division events and assigning the parents to children. 
+"""
+import btrack
+import os
+
+# localising the objects. 
+obj_from_arr = btrack.utils.segmentation_to_objects(seg_masks,properties = ('area', 'major_axis_length','minor_axis_length','perimeter'),assign_class_ID=True)
+
+#running btrack with the objects. 
+# initialise a tracker session using a context manager
+PATH= r'G:\My Drive\Research\singlecell-analysis\Nitin\celltrackers/output'
+
+with btrack.BayesianTracker() as tracker:
+
+    # configure the tracker using a config file- see the folder modules/bTrack/cell_config.json file for this. 
+    #The parameters were optimised using a post hoc approach for the our data. You might need to change these parameters if your data is much different.  
+    tracker.configure_from_file(r'G:\My Drive\Research\singlecell-analysis\Nitin\celltrackers/models/cell_config_final.json')
+    tracker.max_search_radius = 100
+
+    # append the objects to be tracked
+    tracker.append(obj_from_arr)
+
+    # set the volume
+    tracker.volume=((0, 2048), (0, 2048), (-1e5, 1e5))
+
+    # track them (in interactive mode)
+    tracker.track_interactive(step_size=100)
+
+    # generate hypotheses and run the global optimizer
+    #tracker.optimize()
+
+    #if you want to export the tracker information- uncomment the below line
+    #tracker.export(os.path.join(PATH, 'tracking200.h5'), obj_type='obj_type_1')
+
+    # get the tracks in a format for napari visualization
+    data, properties, graph = tracker.to_napari(ndim=2)
+    
+    tracks = tracker.tracks
+  
+  
