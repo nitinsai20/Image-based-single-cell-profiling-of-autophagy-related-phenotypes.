@@ -1,2 +1,4 @@
 This folder contains the information for tracking single cells. 
-As a first step we used bTrack for tracking cells but later developed additional steps to track division events that couldnt be capture using bTrack
+My guess is that lack of nuclear stain is leading to the suboptimal performance of bTrack algorithm
+As a first step we used bTrack for tracking cells but later developed additional steps to track division events that couldnt be capture using bTrack. 
+
