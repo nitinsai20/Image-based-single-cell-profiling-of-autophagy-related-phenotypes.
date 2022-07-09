@@ -1,0 +1,50 @@
+"""
+The algorithm works perfectly for most cell lines we tested(A549, Huh7, U20S, hek293T).
+However, some cell lines needed training data- please refer to cellpose on how to do that. 
+The most important parameter to optimise is the diameter - varies based on cell line and ojective used for imaging. 
+ """
+#provide the path where you want to want to save the labeled cell masks genereated by cellpose algorithm. 
+cpath= r"G:\My Drive\Research\singlecell-analysis\Nitin\Saving_puncta_cell_masks\07312021_data\Cell_mask/"
+
+#RUN cellpose and saving masks
+start= timer()
+from cellpose import models, io
+
+# DEFINE CELLPOSE MODEL
+# model_type='cyto' or model_type='nuclei'
+#model = models.Cellpose(gpu=False, model_type='cyto')
+model = models.Cellpose(gpu=True, model_type='cyto')
+
+# define CHANNELS to run segementation on
+# grayscale=0, R=1, G=2, B=3
+# channels = [cytoplasm, nucleus]
+# if NUCLEUS channel does not exist, set the second channel to 0
+# channels = [0,0]
+# IF ALL YOUR IMAGES ARE THE SAME TYPE, you can give a list with 2 elements
+# channels = [0,0] # IF YOU HAVE GRAYSCALE
+# channels = [2,3] # IF YOU HAVE G=cytoplasm and B=nucleus
+# channels = [2,1] # IF YOU HAVE G=cytoplasm and R=nucleus
+
+# or if you have different types of channels in each image
+channels = [0,0]
+
+#if diameter is set to None, the size of the cells is estimated on a per image basis
+# you can set the average cell `diameter` in pixels yourself (recommended) 
+# diameter can be a list or a single number for all images
+
+# you can run all in a list e.g.
+# >>> imgs = [io.imread(filename) in files]
+# >>> masks, flows, styles, diams = model.eval(imgs, diameter=None, channels=channels)
+# >>> io.masks_flows_to_seg(imgs, masks, flows, diams, files, channels)
+# >>> io.save_to_png(imgs, masks, flows, files)
+
+
+#defining a null array for number of cells. 
+
+# or in a loop
+for filename in GFP_fil_all:
+    img = io.imread(filename)
+    masks, flows, styles, diams = model.eval(img, diameter=120, channels=channels)
+    savepmask_to_txt(masks, filename, label='cell', path=cpath)
+
+print("time taken to cell mask to generate : "+ str(timer()-start) +" secs")
