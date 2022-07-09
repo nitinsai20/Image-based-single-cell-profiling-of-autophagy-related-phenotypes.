@@ -2,7 +2,7 @@
 """
 Created on Tue Mar 22 10:34:52 2022
 #saving puncta mask as text file. 
-The inputs are punctamask as an array. the filname(fname) - same as the input filename. label- either GFP or TRITC and the path to store 
+The inputs mask as an array, the filname(fname) - same as the input filename, label- either GFP or TRITC or cell, and the path to store 
 the txt files. 
 @author: Nitin Beesabathuni]
 
