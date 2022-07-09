@@ -1,6 +1,7 @@
 # Image-based-single-cell-profiling-of-autophagy-related-phenotypes.
 
 Autophagy is an essential intracellular degradative process. Autophagy has been implicated in many diseases such as neurodegenerative diseases, cancer, and infectious diseases1. Identifying and characterizing autophagy-related phenotypes is a pivotal step in developing better therapeutics and effective regulation. Most methods currently used for characterizing autophagy are low throughput and are unable to capture the dynamic changes comprehensively. Image-based profiling serves as an unbiased quantitative approach for characterizing biological phenotypes at a high throughput scale. Image-based profiling offers many unique advantages such as single-cell resolution and the ability to monitor temporal changes with preserved spatial information. Example images are provided below indicating different morphology based on the king of perturbation. 
+
 ![image](https://user-images.githubusercontent.com/54224066/178123474-4464491a-6446-4401-a704-17dc7d398bad.png)
 
 
