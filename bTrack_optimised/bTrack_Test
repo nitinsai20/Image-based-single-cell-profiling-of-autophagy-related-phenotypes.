@@ -2,6 +2,7 @@
 Please note the btrack algorithm is not perfect and doesnt detect division events for our data. However, it is able to track cells quite well  
 but when a cell divides one of the daugther cells is named after the parent while the other one is given a new label. 
 We developed additionally downstream code for detecting the division events and assigning the parents to children. 
+We are valdiating it and havent uploaded it yet. 
 """
 import btrack
 import os
