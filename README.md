@@ -6,7 +6,7 @@ Autophagy is an essential intracellular degradative process. Autophagy has been 
 
 
 
-We developed a new computational pipeline by integrating [Cellpose](https://github.com/MouseLand/cellpose) and [bTrack](https://github.com/quantumjot/BayesianTracker) algorithms. Additionally, we developed our own in-house pipeline for extracting morphological features for autophagy vesicles (puncta) and the cells. Please note that we are still in the process of documenting and not all information is provided or up to date. 
+We developed a new computational pipeline by integrating [Cellpose](https://github.com/MouseLand/cellpose) and [bTrack](https://github.com/quantumjot/BayesianTracker) algorithms. Additionally, we developed our own in-house pipeline for extracting morphological features for autophagy vesicles (puncta) and the cells. **Please note that we are still in the process of documenting and not all information is provided or up to date. **
 
 
 
