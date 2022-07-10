@@ -14,7 +14,7 @@ from skimage.feature import blob_log
 from skimage import segmentation, morphology
 from scipy import ndimage as ndi
 
-def puncta_mask(GFP_files_bg,threshold=0.0275,bitsize_8=True): 
+def puncta_mask(GFP_files_bg,thresholdv=0.0280,bitsize_8=True): 
     if bitsize_8 == True:
         #conversion of 16 bit to 8 bit float by dividing with 257(255/65537) after background subtraction if 8 bit is True
         GFP_files_bg= GFP_files_bg*255/65535
@@ -22,7 +22,7 @@ def puncta_mask(GFP_files_bg,threshold=0.0275,bitsize_8=True):
     #LoG (Laplacian of Gaussian) for detecting puncta with updated radius
     blobs_8bit= [] #defining a null list
     data= GFP_files_bg
-    blobs_8bit.append(blob_log(data, min_sigma = 1, max_sigma=2, num_sigma=60, threshold=0.0275)) #change the threshold. 
+    blobs_8bit.append(blob_log(data, min_sigma = 1, max_sigma=2, num_sigma=60, threshold=thresholdv)) #change the threshold. 
     
     #generating a puncta mask for each image. 
     puncta_mask= np.zeros((2048,2048))
