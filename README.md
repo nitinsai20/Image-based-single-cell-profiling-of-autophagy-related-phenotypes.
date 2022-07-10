@@ -9,10 +9,8 @@ Autophagy is an essential intracellular degradative process. Autophagy has been 
 We developed a new computational pipeline by integrating [Cellpose](https://github.com/MouseLand/cellpose) and [bTrack](https://github.com/quantumjot/BayesianTracker) algorithms. Additionally, we developed our own in-house pipeline for extracting morphological features for autophagy vesicles (puncta) and the cells. 
 ***Please note that we are still in the process of documenting and not all information is provided or up to date. ***
 
-![napari_2022-07-10_00-21-20_AdobeExpress_AdobeExpress](https://user-images.githubusercontent.com/54224066/178131362-06cc9663-14e1-4572-8699-ea7533fefec7.gif)
 
-
-
+![napari_2022-07-10_00-21-20_AdobeExpress_AdobeExpress (1)](https://user-images.githubusercontent.com/54224066/178131387-e24a7a39-cf9e-40ba-a2b3-c9d15f0f0e4d.gif)
 
 
 We identifed the key image features that capture the variability in cellular morphology under different autophagy modulators. Moreover, using these image features we also differentiate various kinds of autophagy perturbations. This approach can be used for characterizing phenotypes and understanding the mechanism of action. Furthermore, this work would act as a proof of principle for developing image-based high throughput drug screening technologies. In future work, similar analysis can be expanded for quantifying morphological changes in other organelles such as the mitochondria and lysosomes for characterizing disease state and progression. 
